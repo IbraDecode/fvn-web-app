@@ -9,12 +9,13 @@ import { APP_CONFIG, FOOTER_TEXT } from "@/lib/constants"
 import dynamic from "next/dynamic"
 import { motion } from "framer-motion"
 import FloatingElements from "@/components/animations/floating-elements"
+import FloatingParticles from "@/components/animations/floating-particles"
 
-const SmartphoneCanvas = dynamic(() => import("@/components/3d/smartphone-canvas"), {
+const EnhancedSmartphoneCanvas = dynamic(() => import("@/components/3d/enhanced-smartphone"), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-[400px] md:h-[500px] flex items-center justify-center">
-      <div className="w-8 h-8 border-2 border-[#00F0FF] border-t-transparent rounded-full animate-spin" />
+    <div className="w-full h-[500px] md:h-[600px] flex items-center justify-center">
+      <div className="w-12 h-12 border-2 border-[#00F0FF] border-t-transparent rounded-full animate-spin" />
     </div>
   ),
 })
@@ -82,6 +83,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+      <FloatingParticles />
       {/* Header */}
       <motion.header
         initial={{ y: -100, opacity: 0 }}
@@ -228,7 +230,7 @@ export default function HomePage() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="relative"
             >
-              <SmartphoneCanvas />
+              <EnhancedSmartphoneCanvas />
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}

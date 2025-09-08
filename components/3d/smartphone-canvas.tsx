@@ -26,7 +26,7 @@ function SmartphoneModel() {
         onPointerOut={() => setHovered(false)}
         scale={hovered ? 1.1 : 1}
       >
-        <roundedBoxGeometry args={[1.5, 3, 0.2, 4, 0.1]} />
+        <boxGeometry args={[1.5, 3, 0.2]} />
         <meshStandardMaterial
           color="#1a1a1a"
           metalness={0.8}
@@ -38,7 +38,7 @@ function SmartphoneModel() {
 
       {/* Screen */}
       <mesh position={[0, 0, 0.11]}>
-        <roundedBoxGeometry args={[1.3, 2.6, 0.01, 4, 0.05]} />
+        <boxGeometry args={[1.3, 2.6, 0.01]} />
         <meshStandardMaterial color="#000000" emissive="#00F0FF" emissiveIntensity={0.3} />
       </mesh>
 
@@ -73,7 +73,7 @@ function SmartphoneModel() {
 
       {/* Glow Effect */}
       <mesh position={[0, 0, 0]}>
-        <roundedBoxGeometry args={[1.8, 3.3, 0.3, 4, 0.1]} />
+        <boxGeometry args={[1.8, 3.3, 0.3]} />
         <meshStandardMaterial color="#00F0FF" transparent opacity={0.1} emissive="#00F0FF" emissiveIntensity={0.2} />
       </mesh>
     </group>
