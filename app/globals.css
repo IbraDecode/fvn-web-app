@@ -1,8 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* ======================
+   THEME VARIABLES
+====================== */
 :root {
-  /* Updated color scheme for FVN dark theme with neon accents */
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -73,8 +75,10 @@
   --sidebar-ring: oklch(0.439 0 0);
 }
 
+/* ======================
+   THEME MAPPING
+====================== */
 @theme inline {
-  /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -113,6 +117,9 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* ======================
+   BASE STYLES
+====================== */
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -120,50 +127,50 @@
   body {
     @apply bg-background text-foreground;
   }
-  /* Glassmorphism effects for FVN */
-  .glass {
-    @apply bg-card/80 backdrop-blur-md border border-border/50;
-  }
 
-  .glass-hover {
-    @apply transition-all duration-300 hover:bg-card/90 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10;
-  }
-
-  .neon-glow {
-    @apply shadow-lg shadow-primary/20;
-  }
-
-  .neon-glow-secondary {
-    @apply shadow-lg shadow-secondary/20;
-  }
-
-  /* Custom scrollbar */
+  /* Scrollbar styling */
   ::-webkit-scrollbar {
     width: 8px;
   }
-
   ::-webkit-scrollbar-track {
     @apply bg-muted;
   }
-
   ::-webkit-scrollbar-thumb {
     @apply bg-border rounded-full;
   }
-
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-primary/50;
   }
 }
 
+/* ======================
+   UTILITIES
+====================== */
+@layer utilities {
+  .glass {
+    @apply bg-card/80 backdrop-blur-md border border-border/50;
+  }
+  .glass-hover {
+    @apply transition-all duration-300 hover:bg-card/90 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10;
+  }
+  .neon-glow {
+    @apply shadow-lg shadow-primary/20;
+  }
+  .neon-glow-secondary {
+    @apply shadow-lg shadow-secondary/20;
+  }
+}
+
+/* ======================
+   COMPONENTS
+====================== */
 @layer components {
   .btn-primary {
     @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-colors;
   }
-
   .btn-secondary {
     @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors;
   }
-
   .card-glass {
     @apply glass glass-hover rounded-xl p-6;
   }
